@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,clear,delete,filter_list,home "
+    />
+    <script src="index.js" defer type="module"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Dolist</title>
+  </head>
+  <body>
+    <main id="container">
+      <div id="head">
+        <div id="greetings">
+          <h1>Good morning <span>👋</span></h1>
+          <p>Today you have ?? tasks</p>
+        </div>
+        <div id="add-button">
+          <button class="filter centered">
+            <span class="material-symbols-rounded">filter_list</span>Filter
+          </button>
+          <button class="add centered">
+            <span class="material-symbols-rounded">add</span>New task
+          </button>
+        </div>
+      </div>
+      <div id="task-container">
+      </div>
+
+      <div id="overlay">
+        <div id="input-wrapper">
+          <span class="material-symbols-rounded clear close">clear</span>
+          <div id="input-align">
+            <label for="task-name">Task name</label>
+            <input type="text" id="task-name" placeholder="Task name" />
+          </div>
+          <div id="buttons-align">
+            <button type="reset" class="clear">Cancel</button>
+            <button type="submit" id="confirm">Add</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <template id="task-template">
+      <div class="task">
+        <span class="content"
+          ><input type="checkbox" id="" /> <label for="">Task 1</label></span
+        >
+        <span class="material-symbols-rounded">delete</span>
+      </div>
+    </template>
+  </body>
+</html>
