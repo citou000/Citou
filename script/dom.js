@@ -31,3 +31,16 @@ export function createElement(tagName, properties) {
   }
   return element;
 }
+
+const p = document.querySelector("#head p");
+const t = document.querySelector("#task-container");
+
+export function update() {
+  p.innerText = `Today you have ${t.children.length} tasks`;
+}
+
+/**
+ * 
+ * @param {HTMLElement} element 
+ * @param {Array} states 
+ */

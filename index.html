@@ -22,23 +22,27 @@
       <div id="head">
         <div id="greetings">
           <h1>Good morning <span>👋</span></h1>
-          <p>Today you have ?? tasks</p>
+          <p></p>
         </div>
         <div id="add-button">
-          <button class="filter centered">
-            <span class="material-symbols-rounded">filter_list</span>Filter
-          </button>
           <button class="add centered">
             <span class="material-symbols-rounded">add</span>New task
           </button>
         </div>
       </div>
-      <div id="task-container">
+      <div id="layout-container">
+        <div id="filtering">
+          <span class="All active">All</span>
+          <span id="done">Done</span>
+          <span id="pending">Pending</span>
+        </div>
       </div>
 
-      <div id="overlay">
-        <div id="input-wrapper">
-          <span class="material-symbols-rounded clear close">clear</span>
+      <div id="task-container"></div>
+
+      <div class="overlay">
+        <form id="input-wrapper">
+          <span class="material-symbols-rounded clear">clear</span>
           <div id="input-align">
             <label for="task-name">Task name</label>
             <input type="text" id="task-name" placeholder="Task name" />
@@ -47,7 +51,7 @@
             <button type="reset" class="clear">Cancel</button>
             <button type="submit" id="confirm">Add</button>
           </div>
-        </div>
+        </form>
       </div>
     </main>
 
