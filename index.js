@@ -1,6 +1,6 @@
-import { createElement } from "./script/dom.js";
+import { createElement, update } from "./script/dom.js";
 import { fetchTasks } from "./script/api.js";
-import { TodoList } from "./script/components/todo.js";
+import { TodoList, TodoListItems } from "./script/components/todo.js";
 
 const element = createElement("div", {
   class: "alert",
@@ -19,11 +19,12 @@ try {
 const t = document.querySelector("#task-container");
 const p = document.querySelector("#head p");
 const taskAdd = document.querySelector(".add");
-const overlay = document.querySelector("#overlay");
+const overlay = document.querySelector(".overlay");
 const clear = document.querySelectorAll(".clear");
-const filterButton = document.querySelector(".filter");
 const filter = document.querySelector("#filtering");
-const close = document.querySelector(".close");
+const taskAddButton = document.querySelector("#confirm");
+const input = document.querySelector("#task-name");
+const taskForm = document.querySelector("#input-wrapper");
 
 p.innerText = `Today you have ${t.children.length} tasks left`;
 
@@ -39,11 +40,39 @@ clear.forEach((bar) => {
   });
 });
 
-filterButton.addEventListener("click", () => {
-  filter.style.display =
-    getComputedStyle(filter)["display"] == "none" ? "flex" : "none";
+taskForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (input.value.trim() === "") {
+    alert("Please enter a task");
+    input.value = "";
+    input.focus();
+  } else {
+    const task = input.value;
+    taskAppend({
+      completed: false,
+      id: t.children.length + 1,
+      title: task,
+      userId: 1,
+    });
+  }
 });
 
-close.addEventListener("click", () => {
-  filter.style.display = "none";
+function taskAppend(task) {
+  const taskItems = new TodoListItems(task);
+  taskItems.appendTo(t);
+  overlay.style.display = "none";
+  input.value = "";
+  update();
+}
+
+filter.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("active")) {
+    document.querySelector(".active").classList.remove("active");
+    e.target.classList.add("active");
+    document.querySelectorAll(".task").forEach((task) => {
+      if (task.classList.contains("completed")) {
+        task.style.display = "none";
+      }
+    });
+  }
 });

@@ -40,7 +40,7 @@ export function update() {
 }
 
 /**
- * 
- * @param {HTMLElement} element 
- * @param {Array} states 
+ *
+ * @param {HTMLElement} element
+ * @param {Array} states
  */
