@@ -259,7 +259,7 @@ button[type="reset"] {
 }
 
 #filtering {
-  background-color: #8f5ce72c;
+  background-color: #b0aeb3ce;
   display: flex;
   gap: 0.5rem;
   padding: 0.3rem;
@@ -272,6 +272,7 @@ button[type="reset"] {
     color: #71717a;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color 2s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
   .active {
