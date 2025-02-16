@@ -69,10 +69,27 @@ filter.addEventListener("click", (e) => {
   if (!e.target.classList.contains("active")) {
     document.querySelector(".active").classList.remove("active");
     e.target.classList.add("active");
-    document.querySelectorAll(".task").forEach((task) => {
-      if (task.classList.contains("completed")) {
-        task.style.display = "none";
+    for (let i = 0; i < t.children.length; i++) {
+      t.children[i].style.display = "flex";
+    }
+    if (e.target.id === "done") {
+      for (let i = 0; i < t.children.length; i++) {
+        // if(t.children[i].chi)
+        if (!t.children[i].children[0].children[0].checked) {
+          t.children[i].style.display = "none";
+        }
       }
-    });
+    } else if (e.target.id === "pending") {
+      for (let i = 0; i < t.children.length; i++) {
+        // if(t.children[i].chi)
+        if (t.children[i].children[0].children[0].checked) {
+          t.children[i].style.display = "none";
+        }
+      }
+    } else {
+      for (let i = 0; i < t.children.length; i++) {
+        t.children[i].style.display = "flex";
+      }
+    }
   }
 });

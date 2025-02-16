@@ -40,13 +40,13 @@ export class TodoListItems {
     const check = createElement("input", {
       type: "checkbox",
       id: `${todo.id}`,
-      checked: todo.completed ? '' : null,
+      checked: todo.completed ? "" : null,
     });
     check.addEventListener("click", () => {
       if (check.checked) {
         task.classList.add("checked");
       } else {
-        task.parentElement.classList.remove("checked");
+        task.classList.remove("checked");
       }
     });
     const label = createElement("label", {
@@ -67,7 +67,6 @@ export class TodoListItems {
     deleteButton.addEventListener("click", () => {
       this.remove();
     });
-    console.log(this.#todo);
   }
 
   appendTo(element) {
