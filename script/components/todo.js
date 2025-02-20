@@ -1,4 +1,5 @@
 import { createElement, update } from "../dom.js";
+import { todos } from "../../app.js";
 
 /**
  * @typedef {object} Todo
@@ -48,7 +49,11 @@ export class TodoListItems {
       } else {
         task.classList.remove("checked");
       }
+      this.#todo.completed = check.checked;
+      localStorage.setItem("todos", JSON.stringify(todos));
+      console.log(todo);
     });
+
     const label = createElement("label", {
       for: `${todo.id}`,
     });
@@ -75,6 +80,14 @@ export class TodoListItems {
   }
 
   remove() {
+    console.log(this.#todo);
+    console.log(todos.findIndex((todo) => todo.id === this.#todo.id));
+    todos.splice(
+      todos.findIndex((todo) => todo.id === this.#todo.id),
+      1
+    );
+    localStorage.setItem("todos", JSON.stringify(todos));
+    console.log(todos);
     this.#task.remove();
     update();
   }

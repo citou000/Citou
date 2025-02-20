@@ -2,20 +2,6 @@ import { createElement, update } from "./script/dom.js";
 import { fetchTasks } from "./script/api.js";
 import { TodoList, TodoListItems } from "./script/components/todo.js";
 
-const element = createElement("div", {
-  class: "alert",
-});
-element.innerHTML = "Hello";
-try {
-  let todos = await fetchTasks(
-    "https://jsonplaceholder.typicode.com/todos?_limit=5"
-  );
-  const response = new TodoList(todos);
-  response.appendTo(document.getElementById("task-container"));
-} catch {
-  console.log("error");
-}
-
 const t = document.querySelector("#task-container");
 const p = document.querySelector("#head p");
 const taskAdd = document.querySelector(".add");
@@ -25,6 +11,27 @@ const filter = document.querySelector("#filtering");
 const taskAddButton = document.querySelector("#confirm");
 const input = document.querySelector("#task-name");
 const taskForm = document.querySelector("#input-wrapper");
+
+export let todos;
+
+if (localStorage.getItem("todos") == null) {
+  todos = [];
+} else {
+  todos = JSON.parse(localStorage.getItem("todos"));
+}
+
+// localStorage.getItem(todos);
+
+try {
+  // todos = await fetchTasks(
+  //   "https://jsonplaceholder.typicode.com/todos?_limit=5"
+  // );
+  console.log(todos);
+  const response = new TodoList(todos);
+  response.appendTo(document.getElementById("task-container"));
+} catch (e) {
+  console.log("Error loading tasks", e);
+}
 
 p.innerText = `Today you have ${t.children.length} tasks left`;
 
@@ -48,12 +55,17 @@ taskForm.addEventListener("submit", (e) => {
     input.focus();
   } else {
     const task = input.value;
-    taskAppend({
+    let taskElement = {
       completed: false,
       id: t.children.length + 1,
       title: task,
       userId: 1,
-    });
+    };
+    taskAppend(taskElement);
+    console.log("line 66, todos content ", todos);
+    todos.push(taskElement);
+    console.log(todos);
+    localStorage.setItem("todos", JSON.stringify(todos));
   }
 });
 
