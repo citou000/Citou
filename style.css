@@ -43,7 +43,7 @@ body {
   width: 60%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   font-size: 1rem;
   margin-bottom: 2rem;
   color: #6c6c6c;
