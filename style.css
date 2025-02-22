@@ -190,7 +190,6 @@ span.clear:hover {
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
-    font-family: "Inter", sans-serif;
   }
 
   span {
@@ -254,16 +253,12 @@ button[type="reset"] {
     width: 100%;
     display: flex;
     align-items: flex-start;
-    /* text-wrap: balance; */
-    /* background-color: antiquewhite; */
   }
   #head {
-    /* background-color: wheat; */
     margin-top: 3rem;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    /* font-size: 0.7rem; */
     width: 100%;
     padding-left: 2rem;
     h1 {
@@ -283,14 +278,10 @@ button[type="reset"] {
   }
   #filtering {
     margin-left: 2rem;
-    /* font-size: 0.7rem; */
-    /* position: absolute; */
-    /* left: 2rem; */
   }
 
   #task-container {
     width: 100%;
-    /* border: 1px solid #ccc; */
     padding: 20px;
     border-radius: 10px;
   }
