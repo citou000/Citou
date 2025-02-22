@@ -44,21 +44,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1rem;
   margin-bottom: 2rem;
   color: #6c6c6c;
-  /* background-color: yellow; */
-  /* background-color: aliceblue; */
+  font-size: 2rem;
 
   h1 {
     font-size: 3rem;
     color: #1a1a1a;
-    span {
-      font-size: 2rem;
-    }
   }
 
   p {
+    font-size: 1rem;
     font-weight: medium;
   }
 
@@ -77,22 +73,12 @@ body {
 #add-button {
   display: flex;
   gap: 1rem;
-  .filter {
-    background-color: hsl(0, 3%, 95%);
-    border: 1px solid #ccc;
-    color: #1a1a1a;
+  .add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
   }
-}
-
-button {
-  font-family: "Inter", sans-serif;
-}
-
-.centered {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
 input[type="checkbox"] {
@@ -117,21 +103,21 @@ input:checked {
 
 #task-container {
   width: 40%;
-  /* background-color: wheat; */
   margin: 0 auto;
-  /* border: 1px solid #ccc; */
   padding: 20px;
   border-radius: 10px;
 }
 
+span.clear:hover {
+  color: red;
+}
+
 .task {
-  /* width: 100% */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.7rem 1rem;
   margin-bottom: 10px;
-  /* border: 1px solid #ccc; */
   border-radius: 12px;
   background-color: #fff;
   transition: 200ms;
@@ -171,7 +157,6 @@ input:checked {
   justify-content: center;
   align-items: center;
   z-index: 100;
-  position: relative;
   position: fixed;
   top: 0;
   left: 0;
@@ -195,7 +180,6 @@ input:checked {
     border-radius: 12px;
     padding: 0.7rem 3rem 0.7rem 1rem;
     font-size: 0.9rem;
-    font-family: "Inter", sans-serif;
   }
 
   button {
@@ -228,16 +212,6 @@ button[type="reset"] {
   color: rgb(255, 58, 58);
 }
 
-.close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-
-  &::hover {
-    cursor: pointer;
-  }
-}
-
 #input-align {
   display: flex;
   flex-direction: column;
@@ -252,7 +226,6 @@ button[type="reset"] {
   gap: 0.5rem;
   padding: 0.3rem;
   border-radius: calc(6px + 0.2rem);
-  /* margin-left: 3rem; */
 
   span {
     padding: 0.3rem 1.5rem;
