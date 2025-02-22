@@ -14,6 +14,13 @@ const taskForm = document.querySelector("#input-wrapper");
 
 export let todos;
 
+function adjustOverlayHeight() {
+  document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
+}
+
+window.addEventListener('resize', adjustOverlayHeight);
+adjustOverlayHeight(); /* Run once on load */
+
 if (localStorage.getItem("todos") == null) {
   todos = [];
 } else {

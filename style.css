@@ -151,7 +151,8 @@ span.clear:hover {
 
 .overlay {
   width: 100vw;
-  height: 100lvh;
+  /* height: 100lvh; */
+  height: var(--viewport-height);
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
